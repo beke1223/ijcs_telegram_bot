@@ -1,11 +1,12 @@
 from typing import Text
 from telegram import Update, ForceReply , BotCommand
- 
+import os
+from dotenv import load_dotenv
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext 
 
-Token = "6441751594:AAHlslZgyHSP3luQjvuxzmUXOfPGynqFmTg"
+load_dotenv()
 
-
+Token = os.getenv("Token")
 
 async def start(update: Update, _: CallbackContext) -> None:
    await update.message.reply_text("Hello! Welcome to IJCS where you can find relevant jobs.")
